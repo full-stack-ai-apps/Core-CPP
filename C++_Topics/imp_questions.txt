@@ -1,0 +1,264 @@
+1. What is STL?
+2. What is a template?
+3. Why we use <bits/stdc++.h>?
+4. Why do we need STL when we can perform all the operations using a user-defined data structure and functions?
+5. What are containers in STL?
+6. What are Algorithms in STL?
+7. What are Functors in STL?
+8. What is a vector?
+9. What is an iterator?
+10. What is the range in terms of vectors?
+11. What is the difference between an array and a vector?
+12. How can we insert elements in a vector? -->? push_back(), insert(), emplace(),[]
+13. How can we remove elements in a vector? --> pop_back(), erase()
+14. What is the time complexity of insertion and deletion in vector?
+ans:
+Insertion
+    If the size of the vector is N --< 
+    At the end: O(1)
+    At M index: O(N – M)
+
+Deletion: If the size of the vector is N, then the time complexity of deletion of an element in the vector is:
+
+At the end: O(1) 
+At M index: O(N-M)
+
+15. What is the use of auto keyword in C++?
+16. How can we traverse a vector?
+17. How to print vectors in C++?
+18. How can we convert the array into a vector?
+19. How can we convert vectors into arrays?
+20. How to initialize a 2-D vector in C++? 
+ans:
+--> vector<vector<int>> v(rows, vector<int> (cols));
+--> vector<vector<int>> v(rows,vector<int> (cols,x)); // If all the values of the vector should be initialized by x
+21. What is the time complexity of the sorting done in vector using the sort( ) function?
+22. What is the use of lower_bound() and upper_bound()?
+23. What is a pair in STL?
+24. Explain different methods to insert elements in a pair.
+26. What is a List? --> doubly linked list 
+ans:
+list provides non-contiguous storage with only sequential 
+element access i.e we can’t randomly access any element using an index number.
+
+27. What is the time complexity of insertion and deletion in the list?
+ans: 
+// https://stackoverflow.com/questions/33987542/time-complexity-of-deletion-in-a-linked-list
+Insertion: Suppose the size of the list is N, then the time complexity of insertion of an element in the list is:
+
+At the end:                 O(1)
+At the beginning:      O(1)
+At M index:                O(M)
+Deletion: Suppose the size of the list is N, then the time complexity of deletion of an element in the list is:
+
+At the end:                 O(1)
+At the beginning:      O(1)
+At M index:                O(M)
+
+28. Difference between a vector and a list?
+ans:
+- contigious/ nonconto memory
+- list --> extra space to store link to next node
+- insertion/deletion --> list : cheap , vector : costly
+- random acess : list : costly, vector: cheap
+
+29. How can we remove & add elements from the list? 
+ans :
+remove --> erase(), pop_front(), pop_back(); // remove --> removes all occurances
+add --> push_front(),emplace_front(),push_back(),emplace_back(),insert(pos_iter,ele_num,ele)
+
+30. What is a stack?
+31. What are the basic functions associated with the STL stack?
+
+32. What is the time complexity of insertion and deletion in the stack?
+ans :
+Insertion and Deletion are only possible at the end of the container with the time complexity of O(1). 
+At any other position if you want to insert an element then we need to use another container 
+or can use another stack, copy the element and remove it from the main stack then push the element
+at that position after then we need to push all elements again.
+
+So, adding or removing at the M position we need to remove N-M elements and then add them again so,
+ O(2*(N-M)) approx O(N).
+
+33. What is a queue in STL?
+ans :
+Insertion and removal both take O(1) time complexity.
+
+34. What are the commonly used member functions of the STL Queue?
+35. What is a deque?
+
+ans:
+push_back( ) and push_front( ), pop_back( ) and pop_front( )
+
+
+36. What is the time complexity of insertion and deletion in the deque?
+Insertion and Removal of elements are possible from both sides of the deque, both insertion and deletion take O(1)
+ time complexity from either side.
+For inserting elements at index M somewhere inside the deque, the time complexity will be linear i.e O(N).
+
+37. What is Set & How can we change the sorting order of a set?
+ans:
+
+stores value in a sorted way without duplication. The set is implemented on a Binary Search Tree 
+(generally red-black tree), because of which time complexity of the 
+elements that are stored in sorted form has the complexity of insertion, find and removal is O(log N).
+ but we can change the sorting order of the set to decreasing by using a greater<int> (STL functor) 
+
+
+ 38. How to access elements in a set by index?
+ ans:
+ We can access the element at the Nth index in a set by: 
+
+    Using Iterator
+    Using std::advance() method
+    Using std::next() method
+
+39. How to iterate over the set?
+40. What is a multiset in STL?
+The multiset is also implemented using Binary Search Tree. 
+ans:
+The time complexity of the elements stored in sorted form has the complexity of insertion,
+find and removal is O(log N).
+
+41. What is a unordered_set?
+
+The unordered_set is implemented using the Hash table data structure.
+ans: 
+The time complexity of the elements stored in sorted form has the complexity of insertion,
+find and removal is O(1) for average cases and O(n) time in the worst case.
+
+42. What is a unordered_multiset in STL?
+ans:
+The unordered_multiset is based on the Hash-table data structure.
+The time complexity of the elements stored in sorted form has the complexity of insertion,
+find and removal is O(1) for average cases and O(n) for the worst case.
+
+43. What is a map?
+ans:
+The map is generally implemented on the Red-Black Tree (Self Balancing B.S.T.) data structure.
+The time complexity for search, insert and delete operations is O(logN), where N is the number of key-value pairs in the map.
+
+
+44. What is a multimap?
+ans:
+The multimap is also based on the Balanced Binary Tree data structure.
+The time complexity of the search, insert, and delete operations is logarithmic i.e. O(logN).
+
+45. What is a unordered_map?
+The unordered_map is based on the Hash Table.
+The time complexity of the insert, delete, and search operations is O(1) for average cases and O(N) for the worst case.
+
+47. What is priority_queue?
+ans:
+The higher priority element will come out first instead of the least recent one.
+
+
+48. How to create a min-heap using STL priority_queue?
+ans:
+priority_queue <int , vector<int> , greater<int> > heap_name;
+
+
+49. What are the basic operations on priority_queue in C++?
+ans:
+The basic operations that can be performed on the priority_queue are as follows:
+
+push( ): used for insertion of the element
+pop( ):  used for removing top element
+top( ): used for checking either min for min-heap and max for max-heap.
+size( ): used for getting the size of the heap.
+We can only access a top element of the heap
+
+
+50. How is priority_queue implemented in C++ STL ? What is the time complexity of basic operations in it?
+The priority_queue is implemented as a heap data structure in C++.
+ As heap is implemented using an array, the priority_queue in STL is also implemented using STL vectors which are nothing but dynamic arrays.
+
+The time complexity of basic operations in priority_queue is as follows:
+
+push( ): O(logN)
+pop( ):  O(1)
+top( ): O(1)
+size( ): O(1)
+
+
+//////////////////////////////////////////////// OOP questions ////////////////////////////////
+9. What is the difference between reference and pointer?
+10. What is the difference between function overloading and operator overloading?
+13. Discuss the difference between prefix and postfix?
+15. What is the difference between virtual functions and pure virtual functions?
+17. What is Function Overriding?
+20. When should we use multiple inheritance?
+22. What is polymorphism in C++?
+23. What are the different types of polymorphism in C++?
+25. Explain the constructor in C++.
+26. What are destructors in C++?
+27. What is a virtual destructor?
+28. Is destructor overloading possible? If yes then explain and if no then why?
+30. What is the purpose of the “delete” operator?
+31. How delete [] is different from delete?
+32. What do you know about friend class and friend function?
+34. What does the Scope Resolution operator do?
+38. Define inline function. Can we have a recursive inline function in C++?
+39. What is an abstract class and when do you use it?
+ans:
+An abstract class is used if you want to provide a common, implemented functionality among all the implementations of the component. Abstract classes will allow you to partially implement your class, whereas interfaces would have no implementation for any members whatsoever. In simple words, Abstract Classes are a good fit if you want to provide implementation
+details to your children but don’t want to allow an instance of your class to be directly instantiated.
+40. What are the static data members and static member functions?
+41. What is the main use of the keyword “Volatile”?
+42. Define storage class in C++ and name some
+46.  Define namespace in C++.
+48. What is the difference between shallow copy and deep copy? -->https://dotnettutorials.net/lesson/deep-copy-and-shallow-copy-in-cpp/#:~:text=Deep%20Copy%20and%20Shallow%20Copy%20in%20C++.,is%20called%20shallow%20copy%20while%20creating%20an
+#include <iostream>
+using namespace std;
+
+class Test
+{
+public:
+int a;
+int *p;
+Test (int x)
+{
+a = x;
+p = new int(a);
+}
+// shallow copy :  t1 & t2 points to same dynamic memory
+// Test (Test &t)
+// {
+// a = t.a;
+// p = t.p;
+// }
+
+// deep copy : allocate new memory
+Test (Test &t)
+{
+a = t.a;
+p = new int(*t.p);
+}
+};
+
+int main()
+{
+Test t1(10);
+Test t2(t1);
+
+cout << t1.a << " " << *t1.p << endl;
+cout << t2.a << " " << *t2.p << endl;
+
+t1.a = 20;
+*(t1.p) = 30;
+
+cout << t1.a << " " << *t1.p << endl;
+cout << t2.a << " " << *t2.p << endl;
+
+return 0;
+}
+
+50. What are void pointers?
+What is ‘this‘ pointer in C++?
+ans:
+this pointer enables every object to have access to its own address through an essential pointer.
+All member functions take this pointer as an implicit argument. this pointer may be used to refer to the calling object within a member function. 
+
+this pointer is used to pass an object as a parameter to another method.
+Each object gets its own copy of the data member.
+this pointer is used to declare indexers.
